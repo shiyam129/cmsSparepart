@@ -19,13 +19,13 @@ class Tabel_barang extends MY_Controller
       $datafield=$this->Tabel_barang_model->get_field();//panggil ke modell
 
       $data = array(
-        'contain_view' => 'Admin/tabel_barang/tabel_barang_list',
-        'sidebar'=>'Admin/sidebar',
-        'css'=>'Admin/crudassets/css',
-        'script'=>'Admin/crudassets/script',
+        'contain_view' => 'admin/tabel_barang/tabel_barang_list',
+        'sidebar'=>'admin/sidebar',
+        'css'=>'admin/crudassets/css',
+        'script'=>'admin/crudassets/script',
         'datatabel_barang'=>$datatabel_barang,
         'datafield'=>$datafield,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'tabel_barang',
         'controller'=>'tabel_barang'
        );
@@ -35,12 +35,12 @@ class Tabel_barang extends MY_Controller
 
     public function create(){
       $data = array(
-        'contain_view' => 'Admin/tabel_barang/tabel_barang_form',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/tabel_barang/create_action',
-        'module'=>'Admin',
+        'contain_view' => 'admin/tabel_barang/tabel_barang_form',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/tabel_barang/create_action',
+        'module'=>'admin',
         'titlePage'=>'tabel_barang',
         'controller'=>'tabel_barang'
        );
@@ -50,13 +50,13 @@ class Tabel_barang extends MY_Controller
     public function edit($id){
       $dataedit=$this->Tabel_barang_model->get_by_id($id);
       $data = array(
-        'contain_view' => 'Admin/tabel_barang/tabel_barang_edit',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/tabel_barang/update_action',
+        'contain_view' => 'admin/tabel_barang/tabel_barang_edit',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/tabel_barang/update_action',
         'dataedit'=>$dataedit,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'tabel_barang',
         'controller'=>'tabel_barang'
        );
@@ -80,7 +80,7 @@ class Tabel_barang extends MY_Controller
 
             $this->Tabel_barang_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Admin/tabel_barang'));
+            redirect(site_url('admin/tabel_barang'));
         }
     }
 
@@ -102,7 +102,7 @@ class Tabel_barang extends MY_Controller
 
             $this->Tabel_barang_model->update($this->input->post('id_barang', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('Admin/tabel_barang'));
+            redirect(site_url('admin/tabel_barang'));
         }
     }
 
@@ -113,10 +113,10 @@ class Tabel_barang extends MY_Controller
         if ($row) {
             $this->Tabel_barang_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Admin/tabel_barang'));
+            redirect(site_url('admin/tabel_barang'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Admin/tabel_barang'));
+            redirect(site_url('admin/tabel_barang'));
         }
     }
 
